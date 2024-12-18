@@ -1,0 +1,233 @@
+/* Estilo geral */
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #2f2f2f; /* Cinza sólido */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 1em;
+    text-align: center;
+    background: #444; /* Fundo neutro */
+    color: #eee; /* Texto claro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2em; /* Tamanho relativo para escalabilidade */
+    color: #fff; /* Branco para título */
+    text-shadow: 2px 2px 0 #000; /* Sombra discreta */
+    margin: 0;
+}
+
+header p {
+    font-size: 1em; /* Texto ajustado */
+    color: #ccc; /* Cinza claro */
+    margin: 5px 0 0;
+}
+
+/* Estilo do container */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adapta ao tamanho disponível */
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Estilo do cartão */
+.character-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: visible;
+    text-align: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #000;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+}
+
+/* Balão de fala */
+.character-card .bubble {
+    position: absolute;
+    top: -60px; /* Ajuste para posicionar o balão acima */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    color: #333;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 0.5em 0.8em; /* Medidas relativas */
+    font-size: 0.9em; /* Ajustado para telas menores */
+    font-family: 'Comic Sans MS', sans-serif;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 10;
+    width: auto;
+    max-width: 80%;
+}
+
+.character-card .bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Posiciona a ponta fora do balão */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent; /* Branco no topo */
+    border-top: 3px solid #000; /* Linha preta na borda superior */
+}
+
+/* Exibir o balão ao passar o mouse */
+.character-card:hover .bubble {
+    display: block;
+}
+
+/* Imagem dentro do cartão */
+.character-card .image {
+    height: 180px; /* Ajuste para dispositivos menores */
+    width: 180px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.character-card .image img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* Informações do personagem */
+.character-card .info {
+    padding: 15px;
+}
+
+.character-card .info h3 {
+    margin: 0;
+    font-size: 1.2em; /* Ajustado para responsividade */
+    color: #444; /* Cinza escuro */
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.character-card .info p {
+    font-size: 0.9em; /* Ajustado para responsividade */
+    color: #666;
+}
+
+/* Estilos personalizados para elementos */
+.fire {
+    background: linear-gradient(orange, red);
+}
+
+.water {
+    background: linear-gradient(blue, lightblue);
+}
+
+.thunder {
+    background: linear-gradient(yellow, gold);
+}
+
+.air {
+    background: linear-gradient(white, lightgray);
+}
+
+.earth {
+    background: linear-gradient(brown, green);
+}
+
+.ice {
+    background: linear-gradient(lightblue, white);
+}
+
+.darkness {
+    background: linear-gradient(black, darkgray);
+}
+
+.light {
+    background: linear-gradient(white, yellow);
+}
+
+.wood {
+    background: linear-gradient(green, darkgreen);
+}
+
+.radiation {
+    background: linear-gradient(limegreen, yellowgreen);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em; /* Reduzido para tablets e celulares */
+    }
+
+    .character-card .bubble {
+        font-size: 0.8em;
+    }
+
+    .character-card .image {
+        height: 150px; /* Reduzido para caber melhor */
+        width: 150px;
+    }
+
+    .character-card .info h3 {
+        font-size: 1em;
+    }
+
+    .character-card .info p {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Reduzido para celulares pequenos */
+    }
+
+    .container {
+        gap: 10px;
+    }
+
+    .character-card .bubble {
+        font-size: 0.7em;
+        padding: 0.4em 0.6em;
+    }
+
+    .character-card .image {
+        height: 120px;
+        width: 120px;
+    }
+
+    .character-card .info {
+        padding: 10px;
+    }
+
+    .character-card .info h3 {
+        font-size: 0.9em;
+    }
+
+    .character-card .info p {
+        font-size: 0.7em;
+    }
+}
